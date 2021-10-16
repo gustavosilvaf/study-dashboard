@@ -14,6 +14,7 @@ import {
 } from "@chakra-ui/react";
 import { RiAddLine } from "react-icons/ri";
 import { Header } from "../../components/Header";
+import { Pagination } from "../../components/Pagination";
 import { SideBar } from "../../components/Sidebar";
 
 export default function UserList() {
@@ -60,8 +61,37 @@ export default function UserList() {
                 </Td>
                 <Td>04 de Abril de 2021</Td>
               </Tr>
+              <Tr>
+                <Td px="6">
+                  <Checkbox colorScheme="pink" />
+                </Td>
+                <Td>
+                  <Box>
+                    <Text fontWeight="bold">Gustavo Silva</Text>
+                    <Text fontSize="sm" color="gray.300">
+                      gustavofsilva@email.com
+                    </Text>
+                  </Box>
+                </Td>
+                <Td>04 de Abril de 2021</Td>
+              </Tr>
+              <Tr>
+                <Td px="6">
+                  <Checkbox colorScheme="pink" />
+                </Td>
+                <Td>
+                  <Box>
+                    <Text fontWeight="bold">Gustavo Silva</Text>
+                    <Text fontSize="sm" color="gray.300">
+                      gustavofsilva@email.com
+                    </Text>
+                  </Box>
+                </Td>
+                <Td>04 de Abril de 2021</Td>
+              </Tr>
             </Tbody>
           </Table>
+          <Pagination />
         </Box>
       </Flex>
     </Box>
