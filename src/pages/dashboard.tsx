@@ -52,7 +52,8 @@ export default function Dashboard() {
         opacityTo: 0.1,
       },
     },
-  };
+  } as any;
+
   const series = [{ name: "series1", data: [31, 120, 10, 28, 51, 109, 60] }];
 
   return (
