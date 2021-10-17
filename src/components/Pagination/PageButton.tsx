@@ -8,23 +8,23 @@ interface PageButtonProps {
 export const PageButton = ({ number, isActive }: PageButtonProps) => {
   const pageButtonProps = isActive
     ? {
-        bg: "pink.500",
-        cursor: "default",
+        colorScheme: "pink",
+        disabled: true,
+        _disabled: {
+          bg: "pink.500",
+          cursor: "default",
+        },
       }
     : {
         bg: "gray.700",
-        cursor: "pointer",
+        _hover: {
+          bg: "gray.500",
+          cursor: "pointer",
+        },
       };
 
   return (
-    <Button
-      size="sm"
-      fontSize="xs"
-      width="4"
-      colorScheme="pink"
-      disabled
-      _disabled={pageButtonProps}
-    >
+    <Button size="sm" fontSize="xs" width="4" {...pageButtonProps}>
       {number}
     </Button>
   );

@@ -1,53 +1,44 @@
-import { Box, Stack } from "@chakra-ui/react";
 import {
-  RiContactsLine,
-  RiDashboardLine,
-  RiGitMergeLine,
-  RiInputMethodLine,
-} from "react-icons/ri";
-import { NavSession } from "./NavSession";
+  Box,
+  useBreakpointValue,
+  Drawer,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  DrawerHeader,
+  DrawerBody,
+} from "@chakra-ui/react";
+import { useSideBarDrawer } from "../../context/SidebarContext";
+
+import { SidebarNav } from "./SidebarNav";
 
 export const Sidebar = () => {
-  const sessionItems = [
-    {
-      sessionName: "GERAL",
-      items: [
-        {
-          name: "Dashboard",
-          icon: RiDashboardLine,
-        },
-        {
-          name: "Usuários",
-          icon: RiContactsLine,
-        },
-      ],
-    },
-    {
-      sessionName: "AUTOMAÇÃO",
-      items: [
-        {
-          name: "Formulários",
-          icon: RiInputMethodLine,
-        },
-        {
-          name: "Automação",
-          icon: RiGitMergeLine,
-        },
-      ],
-    },
-  ];
+  const isDrawerSidebar = useBreakpointValue({
+    base: true,
+    lg: false,
+  });
+
+  const { isOpen, onClose } = useSideBarDrawer();
+
+  if (isDrawerSidebar) {
+    return (
+      <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
+        <DrawerOverlay>
+          <DrawerContent bg="gray.800" p="4">
+            <DrawerCloseButton mt="6" />
+            <DrawerHeader>Navegação</DrawerHeader>
+            <DrawerBody>
+              <SidebarNav />
+            </DrawerBody>
+          </DrawerContent>
+        </DrawerOverlay>
+      </Drawer>
+    );
+  }
 
   return (
     <Box as="aside" w="64" mr="8">
-      <Stack spacing="12" align="flex-start">
-        {sessionItems.map((session) => (
-          <NavSession
-            sessionName={session.sessionName}
-            links={session.items}
-            key={session.sessionName}
-          />
-        ))}
-      </Stack>
+      <SidebarNav />
     </Box>
   );
 };
