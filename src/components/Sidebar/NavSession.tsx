@@ -13,7 +13,7 @@ export const NavSession = ({ sessionName, links }: NavSessionProps) => {
         {sessionName}
         <Stack spacing="6" mt="8" align="stretch">
           {links.map((link) => (
-            <NavLink key={link.name} name={link.name} icon={link.icon} />
+            <NavLink key={link.name} name={link.name} icon={link.icon} link={link.link} />
           ))}
         </Stack>
       </Text>

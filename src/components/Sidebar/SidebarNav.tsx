@@ -15,10 +15,12 @@ export const SidebarNav = () => {
         {
           name: "Dashboard",
           icon: RiDashboardLine,
+          link: '/dashboard'
         },
         {
           name: "Usuários",
           icon: RiContactsLine,
+          link: '/users'
         },
       ],
     },
@@ -28,10 +30,12 @@ export const SidebarNav = () => {
         {
           name: "Formulários",
           icon: RiInputMethodLine,
+          link: '/forms'
         },
         {
           name: "Automação",
           icon: RiGitMergeLine,
+          link: '/automation'
         },
       ],
     },
