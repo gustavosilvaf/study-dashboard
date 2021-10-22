@@ -7,8 +7,6 @@ interface NavSessionProps {
 }
 
 export const NavSession = ({ sessionName, links }: NavSessionProps) => {
-  console.log(sessionName, links);
-
   return (
     <Box>
       <Text fontWeight="bold" color="gray.400" fontSize="small">
