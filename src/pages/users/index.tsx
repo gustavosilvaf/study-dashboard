@@ -10,19 +10,27 @@ import {
   Td,
   Checkbox,
   Tbody,
-  Text, useBreakpointValue,
+  Text,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import { RiAddLine } from "react-icons/ri";
 import { Header } from "../../components/Header";
 import { Pagination } from "../../components/Pagination";
 import { Sidebar } from "../../components/Sidebar";
-import Link from 'next/link'
+import Link from "next/link";
+import { useEffect } from "react";
 
 export default function UserList() {
   const isWideVersion = useBreakpointValue({
     base: false,
     lg: true,
-  })
+  });
+
+  useEffect(() => {
+    fetch("http://localhost:3000/api/users")
+      .then((response) => response.json())
+      .then((data) => console.log(data));
+  }, []);
 
   return (
     <Box>
@@ -36,16 +44,15 @@ export default function UserList() {
             </Heading>
             <Link href="/users/create" passHref>
               <Button
-                  as="a"
-                  size="sm"
-                  fontSize="sm"
-                  colorScheme="pink"
-                  leftIcon={<Icon fontSize={16} as={RiAddLine} />}
+                as="a"
+                size="sm"
+                fontSize="sm"
+                colorScheme="pink"
+                leftIcon={<Icon fontSize={16} as={RiAddLine} />}
               >
                 Criar novo usuário
               </Button>
             </Link>
-
           </Flex>
           <Table colorScheme="whiteAlpha">
             <Tr>
@@ -68,7 +75,7 @@ export default function UserList() {
                     </Text>
                   </Box>
                 </Td>
-                { isWideVersion && <Td>04 de Abril de 2021</Td>}
+                {isWideVersion && <Td>04 de Abril de 2021</Td>}
               </Tr>
               <Tr>
                 <Td px={["4", "4", "6"]}>
@@ -82,7 +89,7 @@ export default function UserList() {
                     </Text>
                   </Box>
                 </Td>
-                { isWideVersion && <Td>04 de Abril de 2021</Td>}
+                {isWideVersion && <Td>04 de Abril de 2021</Td>}
               </Tr>
               <Tr>
                 <Td px={["4", "4", "6"]}>
@@ -96,7 +103,7 @@ export default function UserList() {
                     </Text>
                   </Box>
                 </Td>
-                { isWideVersion && <Td>04 de Abril de 2021</Td>}
+                {isWideVersion && <Td>04 de Abril de 2021</Td>}
               </Tr>
             </Tbody>
           </Table>
