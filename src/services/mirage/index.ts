@@ -21,12 +21,12 @@ export const makeServer = () => {
           return faker.internet.email().toLowerCase();
         },
         createdAt() {
-          return faker.date.recent(10);
+          return faker.date.recent(360);
         },
       }),
     },
     seeds(server) {
-      server.createList("user", 200);
+      server.createList("user", 10);
     },
 
     routes() {
